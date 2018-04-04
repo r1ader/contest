@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>图片切换</title>
+    <script type="text/javascript" src="js/picture_switch2.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+    <style type="text/css">
+        .none {
+            position: absolute;
+            opacity: 0;
+            left: 0;
+            top: 0;
+            width: 400px;
+            height: 550px;
+        }
+
+        .left {
+            opacity: 0.7;
+            position: relative;
+            z-index: 1;
+            height: 100px;
+            width: 100px;
+            margin-right: 200px;
+            background: url("img/left.png");
+            background-size: 100%;
+        }
+
+        .left:hover {
+            background: url("img/left2.png");
+            background-size: 100%;
+            transition: 1s;
+        }
+
+        .right {
+            opacity: 0.7;
+            position: relative;
+            z-index: 1;
+            height: 100px;
+            width: 100px;
+            margin-left: 200px;
+            background: url("img/right.png");
+            background-size: 100%;
+        }
+
+        .right:hover {
+            background: url("img/right2.png");
+            background-size: 100%;
+            transition: 1s;
+        }
+
+        .switch {
+            width: 150px;
+            height: 50px;
+            font-size: 30px;
+        }
+
+    </style>
+
+</head>
+
+<body style="padding: 0;margin: 0;">
+<div id="tab" align="center">
+    <div id="a"></div>
+    <div id="b"></div>
+    <table border="1">
+        <tr>
+            <td>
+                <div id="left" class="left" onclick="next(1)"></div>
+            </td>
+            <td id="pic_content" width="400px" height="550px" valign="top" style="overflow:hidden;position:relative;">
+                <img id="01" class="none" src="img/01.jpg"/>
+                <img class="none" src="img/02.jpg"/>
+                <img class="none" src="img/03.jpg"/>
+                <img class="none" src="img/04.jpg"/>
+                <img class="none" src="img/05.jpg"/>
+            </td>
+            <td>
+                <div id="right" class="right" onclick="next(-1)"></div>
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+</body>
+<script>
+    var now = 0;
+    var cd=true;
+    window.onload = function (ev) {
+        var img = $("#pic_content").children();
+        $(img[now]).css('opacity', 1);
+    };
+    function next(dir) {
+        if(!cd) return;
+        cd=false;
+        setTimeout(function () {
+            cd=true;
+        },500);
+        var img = $("#pic_content").children();
+        $(img[now]).animate({'opacity':0});
+        now+=dir;
+        if(now>=5)
+            now=0;
+        if(now<0)
+            now=4;
+        $(img[now]).animate({'opacity':1});
+    }
+</script>
+</html>
