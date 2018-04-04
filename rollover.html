@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("div#1").animate({
+                    zIndex:'-=1',
+                    left:'+=300px',
+                    height:'-=125px',
+                    width:'-=75px',
+                    top:'+=75px',
+                    opacity:'-=0.5'
+
+                });
+                $("div#0").animate({
+                    zIndex:'+=1',
+                    left:'+=225px',
+                    height:'+=125px',
+                    width:'+=75px',
+                    top:'-=75px',
+                    opacity:'+=0.5'
+
+                });
+                $("div#2").animate({
+                    left:'-225px',
+                    height:'375px',
+                    width:'225px',
+                    top:'75px',
+                    opacity:'0.5'
+                    ,zIndex:'2'
+                });
+                var a = document.getElementById('0');
+                var b = document.getElementById('1');
+                var c = document.getElementById('2');
+                a.id='1';
+                b.id='2';
+                c.id='0';
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+<button>开始动画</button>
+<p>默认情况下，所有 HTML 元素的位置都是静态的，并且无法移动。如需对位置进行操作，记得首先把元素的 CSS position 属性设置为 relative、fixed 或 absolute。</p>
+<div align="center" style="">
+<div style="position: relative;left: 300px;">
+<div id="0" style="height:375px;width:225px;position: absolute;left:-225px;top:75px;z-index: 2;opacity: 0.5">
+    <img src="img/01.jpg" width="100%" height="100%">
+</div>
+<div id="1" style="background:#98bf21;height:500px;width:300px;position: absolute;z-index: 3">
+    <img src="img/02.jpg" width="100%" height="100%">
+</div>
+<div id="2" style="background:#2aabd2;height:375px;width:225px;position: absolute;left:300px;top:75px;z-index: 2;opacity: 0.5">
+    <img src="img/03.jpg" width="100%" height="100%">
+</div>
+</div>
+</div>
+
+</body>
+</html>

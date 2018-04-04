@@ -150,80 +150,6 @@
             transition: 0.5s;
         }
 
-        #colrow {
-            position: fixed;
-            left: 40px;
-            top: 70%;
-            height: 80px;
-            width: 80px;
-            border-radius: 40px;
-
-            transition: 0.2s;
-        }
-
-        #colrow div {
-            position: absolute;
-            z-index: 50;
-            left: 20px;
-            top: 20px;
-            width: 37px;
-            height: 37px;
-            border-radius: 20px;
-            border: 2px white solid;
-            transition: 0.5s;
-            transition-delay: 0.5s;
-            opacity: 0;
-
-        }
-
-        #colrow:hover img{
-            transform:rotate(360deg);
-            transition: 0.2s ease-in-out;
-        }
-
-        #colrow:hover .colch1 {
-            background-color: #ff4500;
-            top: 20px;
-            left: -60px;
-            transition: 0.2s;
-            opacity: 1;
-        }
-
-        #colrow:hover .colch2 {
-            background-color: #feff00;
-            top: -40px;
-            left: -40px;
-            transition: 0.2s;
-            transition-delay: 0.05s;
-            opacity: 1;
-        }
-
-        #colrow:hover .colch3 {
-            background-color: #58ff00;
-            top: -60px;
-            left: 20px;
-            transition: 0.2s;
-            transition-delay: 0.1s;
-            opacity: 1;
-        }
-
-        #colrow:hover .colch4 {
-            background-color: #00ffac;
-            top: -40px;
-            left: 80px;
-            transition: 0.2s;
-            transition-delay: 0.15s;
-            opacity: 1;
-        }
-
-        #colrow:hover .colch5 {
-            background-color: #00a0ff;
-            top: 20px;
-            left: 100px;
-            transition: 0.2s;
-            transition-delay: 0.2s;
-            opacity: 1;
-        }
 
         .mid_body{
             /*padding: 20px;*/
@@ -232,14 +158,6 @@
 
         }
 
-        .main_body{
-            position: relative;
-            top:20px;
-            width: 70%;
-            height: 1000px;
-            background-color: rgba(0, 0, 0, 0.71);
-            border-radius: 30px;
-        }
 
         #background_color{
             position: absolute;
@@ -289,17 +207,7 @@
 
 <div class="mid_body" align="center">
     <div id="background_color"></div>
-    <div class="main_body">
 
-    </div>
-</div>
-<div id="colrow">
-    <img src="img/yuan.png" style="width: 80px;height: 80px;">
-    <div class="colch1"></div>
-    <div class="colch2"></div>
-    <div class="colch3"></div>
-    <div class="colch4"></div>
-    <div class="colch5"></div>
 </div>
 </body>
 </html>
