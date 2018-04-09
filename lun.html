@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-3.1.1.js"></script>
+    <title>Document</title>
+    <style>
+        #main{
+            width: 800px;
+            height: 800px;
+            background: gray;
+        }
+        .zhuan{
+            width: 100px;
+            height: 40px;
+            display: inline-block;
+            position: absolute;
+            background: white;
+            top: 0;
+            left: 400px;
+            opacity: 0;
+            animation: high 10s ease-in-out infinite;
+            z-index: 1;
+            /*animation-delay: ;*/
+        }
+
+        .zhuan:hover{
+            animation-play-state: paused;
+            opacity: 1;
+            z-index: 2;
+            border: 2px black solid;
+        }
+
+        @keyframes high {
+            0%  {top: 100px;}
+            100% {top: 700px;}
+
+            0% {opacity: 0}
+            60% {opacity: 1}
+            100% {opacity: 0}
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div style="display: inline-block;width: 100px"></div>
+<div id="main">
+    <div class="zhuan"></div>
+</div>
+</body>
+<script>
+    var txt = '<div class="zhuan"></div>';
+    for(var i=0;i<40;i++)
+        $("#main").append(txt);
+    var ch = $("#main").children();
+    console.log(ch);
+    for(var i=0;i<ch.length;i++){
+        $(ch[i]).css('animation-delay',(Math.random()*20-10).toString()+'s');
+        $(ch[i]).css('left',(Math.random()*600).toString()+'px');
+    }
+</script>
+</html>
