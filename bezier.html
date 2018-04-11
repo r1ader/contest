@@ -67,13 +67,13 @@
                 background: rgba(255,255,255,0);
                 color: rgba(255,255,255,0);
             }
-            4% {
+            6% {
                 background: rgba(255,255,255,1);
             }
             8% {
                 background: rgba(255,255,255,0);
             }
-            12% {
+            10% {
                 background: rgba(255,255,255,1);
                 color: rgba(255,255,255,0);
             }
@@ -90,7 +90,10 @@
             0% {
                 width: 1px;height: 0;
             }
-            30%{width: 1px;height: 40px;}
+            15%{width: 1px;height: 40px;}
+            50%{
+                width: 295px;
+            }
             100%{
                 width: 295px;
             }
@@ -125,7 +128,7 @@
 <body>
 <div id="main">
     <div>
-        <div class="ani" style="animation: anime 2s cubic-bezier(1,0,.57,1);">
+        <div class="ani" style="animation: anime 2s cubic-bezier(1,0,.57,1) infinite alternate;">
             bezier
         </div>
     </div>
@@ -135,7 +138,7 @@
     <br>
     <br>
     <div>
-        <div class="ani" style="animation: anime2 2s cubic-bezier(1,0,.57,1);">
+        <div class="ani" style="animation: anime2 2s cubic-bezier(1,0,.57,1) infinite alternate;">
             123
         </div>
     </div>
@@ -145,10 +148,10 @@
     <br>
     <br>
     <div>
-        <div class="ani" style="animation: anime3 1s cubic-bezier(1,0,.57,1);">
+        <div class="ani" style="animation: anime3 2s cubic-bezier(1,0,.57,1) infinite alternate;">
             the longlonglong text
         </div>
-        <div class="ani" style="left:305px;border:1px rgba(0,0,0,0) solid;animation: anime4 2s cubic-bezier(1,0,.57,1);">
+        <div class="ani" style="left:305px;border:1px rgba(0,0,0,0) solid;animation: anime4 2s cubic-bezier(1,0,.57,1) infinite alternate;">
         </div>
     </div>
 </div>
