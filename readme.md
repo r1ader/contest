@@ -17,3 +17,7 @@
 * [热点词滚动](https://r1ader.github.io/demo/lun.html)
 
 <a href="https://r1ader.github.io/demo/lun.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/lun.gif" width = "300" height = "300" alt="热点词滚动" align=center /></a>
+
+* [一些文字插入动画](https://r1ader.github.io/demo/bezier.html)
+
+<a href="https://r1ader.github.io/demo/bezier.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/bezier.gif" width = "300" height = "250" alt="热点词滚动" align=center /></a>
