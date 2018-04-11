@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-3.1.1.js"></script>
+    <title>Document</title>
+    <style>
+        #main {
+            width: 600px;
+            height: 600px;
+            background: gray;
+        }
+
+        .ani {
+            display: inline-block;
+            position: absolute;
+            height: 40px;
+            font: 30px Rockwell;
+            color: white;
+            opacity: 1;
+            padding: 10px;
+            margin: 10px;
+            left: 9px;
+            border: 1px rgba(255, 255, 255, 1) solid;
+            /*animation: anime 2s cubic-bezier(1,0,.57,1);*/
+            overflow: hidden;
+            /*word-wrap:break-word ;*/
+            white-space:nowrap;
+        }
+
+        @keyframes anime {
+            0% {
+                transform: scale(3, 3);
+                left: 300px;
+                opacity: 0;
+                color: rgba(255, 255, 255, 0);
+                border: 1px white solid;
+            }
+            50% {
+                transform: scale(1, 1);
+                left: 9px;
+                opacity: 1;
+                background-color: rgba(255, 255, 255, 0)
+            }
+            60% {
+                color: rgba(255, 255, 255, 0);
+                background-color: white;
+                border: 1px white solid;
+            }
+            75% {
+                color: white;
+                border: 1px rgba(255, 255, 255, 0) solid
+            }
+            92% {
+                border: 1px rgba(255, 255, 255, 1) solid
+            }
+            100% {
+                border: 1px rgba(255, 255, 255, 0) solid
+            }
+        }
+
+        @keyframes anime2 {
+            0% {
+                background: rgba(255,255,255,0);
+                color: rgba(255,255,255,0);
+            }
+            4% {
+                background: rgba(255,255,255,1);
+            }
+            8% {
+                background: rgba(255,255,255,0);
+            }
+            12% {
+                background: rgba(255,255,255,1);
+                color: rgba(255,255,255,0);
+            }
+            42% {
+                background: rgba(255,255,255,0);
+                color: rgba(255,255,255,1);
+            }
+            100% {
+
+            }
+        }
+        
+        @keyframes anime3 {
+            0% {
+                width: 1px;height: 0;
+            }
+            30%{width: 1px;height: 40px;}
+            100%{
+                width: 295px;
+            }
+        }
+        
+        @keyframes anime4 {
+            0%{
+                left:9px;width: 1px;height: 0;background: white;
+            }
+            15%{
+                width: 1px;height: 40px;background: white;
+                left:9px;
+            }
+            50%{
+                left:305px;background: white;
+            }
+            70%{
+                left:305px;background: white;
+            }
+            72%{
+                left:305px;background: rgba(255,255,255,0);
+            }
+            74%{
+                left:305px;background: white;
+            }
+            90%{
+                left:305px;background: rgba(255,255,255,0);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div>
+        <div class="ani" style="animation: anime 2s cubic-bezier(1,0,.57,1);">
+            bezier
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <div class="ani" style="animation: anime2 2s cubic-bezier(1,0,.57,1);">
+            123
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <div class="ani" style="animation: anime3 1s cubic-bezier(1,0,.57,1);">
+            the longlonglong text
+        </div>
+        <div class="ani" style="left:305px;border:1px rgba(0,0,0,0) solid;animation: anime4 2s cubic-bezier(1,0,.57,1);">
+        </div>
+    </div>
+</div>
+</body>
+</html>
