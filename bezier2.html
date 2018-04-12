@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.1.1.js"></script>
+    <style>
+        #board{
+            width: 800px;
+            height: 800px;
+            background: gray;
+        }
+
+        #cir{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            /*border: white 1px solid;*/
+            /*left: 0;*/
+            /*top: 0;*/
+            animation: big 1s cubic-bezier(.89,.24,.38,1);
+            animation-delay: 1s;
+        }
+
+        .fill1{
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 0;
+            animation: dash 1s cubic-bezier(.89,.24,.38,1);
+        }
+
+        @keyframes dash {
+            from{
+                /*stroke-dasharray: 1000;*/
+                stroke-dashoffset: 1000;
+            }
+            to{
+                stroke-dashoffset: 350;
+                /*stroke-dasharray: 0;*/
+            }
+        }
+
+        @keyframes big {
+            to{
+                left: 300px;
+                transform: scale(2,2);
+            }
+        }
+    </style>
+</head>
+<body>
+<h2 id="poffset">offset: 0</h2>
+<input type="range" id="offset" min="0" max="1000" step="1" value="0" style="width: 400px">
+<h2 id="parray">array: 0</h2>
+<input type="range" id="array" min="0" max="1000" step="1" value="0" style="width: 400px">
+
+<div id="board">
+    <svg id="cir">
+        <g fill="none" stroke="white">
+            <path class="fill1" stroke-width="2" d="M100 190a90 90 0 1 1 0.1 0"></path>
+        </g>
+    </svg>
+</div>
+</body>
+<script>
+    window.onload=function (ev) {
+        $('#offset').mousemove(function () {
+            $('#poffset').html('offset: '+this.value);
+            // console.log(this.value);
+            $('.fill1').css('stroke-dashoffset',this.value);
+        })
+        $('#array').mousemove(function () {
+            $('#parray').html('array: '+this.value);
+            // console.log(this.value);
+            $('.fill1').css('stroke-dasharray',this.value);
+        })
+    };
+
+</script>
+</html>
