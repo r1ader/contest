@@ -21,3 +21,7 @@
 * [一些文字插入动画](https://r1ader.github.io/demo/bezier.html)
 
 <a href="https://r1ader.github.io/demo/bezier.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/bezier.gif" width = "300" height = "250" alt="热点词滚动" align=center /></a>
+
+* [三维矩阵求逆](https://r1ader.github.io/demo/Matrix.html)
+
+<a href="https://r1ader.github.io/demo/Matrix.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/Matrix.png" width = "100" height = "250" alt="热点词滚动" align=center /></a>
