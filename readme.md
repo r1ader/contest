@@ -24,4 +24,4 @@
 
 * [三维矩阵求逆](https://r1ader.github.io/demo/Matrix.html)
 
-<a href="https://r1ader.github.io/demo/Matrix.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/Matrix.png" width = "100" height = "250" alt="热点词滚动" align=center /></a>
+<a href="https://r1ader.github.io/demo/Matrix.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/Matrix.png" width = "200" height = "500" alt="热点词滚动" align=center /></a>
