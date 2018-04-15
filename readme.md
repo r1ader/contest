@@ -25,3 +25,7 @@
 * [三维矩阵求逆](https://r1ader.github.io/demo/Matrix.html)
 
 <a href="https://r1ader.github.io/demo/Matrix.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/Matrix.png" width = "200" height = "500" alt="热点词滚动" align=center /></a>
+
+* [验证码生成及导出至本地](https://r1ader.github.io/demo/yanz.html)
+
+<a href="https://r1ader.github.io/demo/yanz.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/yanz.png" width = "300" height = "300" alt="验证码生成及导出至本地" align=center /></a>
