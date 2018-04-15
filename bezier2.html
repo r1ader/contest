@@ -12,56 +12,244 @@
             width: 800px;
             height: 800px;
             background: gray;
+            overflow: hidden;
         }
 
         #cir{
             position: absolute;
             width: 200px;
             height: 200px;
-            /*border: white 1px solid;*/
-            /*left: 0;*/
-            /*top: 0;*/
-            animation: big 1s cubic-bezier(.89,.24,.38,1);
-            animation-delay: 1s;
+            left: -50px;
+            opacity: 0;
+            transform: scale(1,0.5);
+            animation: movee 1s cubic-bezier(.89,.24,.38,1);
+            /*animation-delay: 0.5s;*/
         }
 
         .fill1{
             stroke-dasharray: 1000;
             stroke-dashoffset: 0;
-            animation: dash 1s cubic-bezier(.89,.24,.38,1);
+            animation: dash 2s cubic-bezier(.89,.24,.38,1);
+            opacity: 0;
+        }
+
+        .fill2{
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 0;
+            animation: dash 2s cubic-bezier(.89,.24,.38,1);
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .fill3{
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 0;
+            animation: dash 2s cubic-bezier(.89,.24,.38,1);
+            animation-delay: 0.1s;
+            opacity: 0;
         }
 
         @keyframes dash {
-            from{
-                /*stroke-dasharray: 1000;*/
+            0%{
                 stroke-dashoffset: 1000;
+                opacity: 1;
             }
-            to{
+            25%{
                 stroke-dashoffset: 350;
-                /*stroke-dasharray: 0;*/
+            }
+            60%{
+                opacity: 1;
+            }
+            63%{
+                opacity: 0;
+            }
+            65%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
             }
         }
 
-        @keyframes big {
-            to{
+        #cuber1{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 300px;
+            left: 0;
+            opacity: 1;
+            color: rgba(155,0,0,1);
+            animation: pos 2s cubic-bezier(.89,.24,.38,1);
+
+            /*animation-delay: 0.5s;*/
+        }
+        #cuber2{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 300px;
+            left: 70px;
+            opacity: 1;
+            color: rgba(155,0,0,1);
+            animation: pos2 2s cubic-bezier(.89,.24,.38,1);
+            /*animation-delay: 0.2s;*/
+        }
+        #cuber3{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 300px;
+            left: 140px;
+            opacity: 1;
+            color: rgba(155,0,0,1);
+            animation: pos3 2s cubic-bezier(.89,.24,.38,1);
+            /*animation-delay: 0.1s;*/
+        }
+
+        @keyframes pos {
+            0%{
+                transform: rotate(-45deg);
                 left: 300px;
-                transform: scale(2,2);
+                color: rgba(155,0,0,0);
+            }
+            25%{
+                transform: rotate(-45deg);
+                left: 300px;
+            }
+            60%{
+                transform: rotate(0deg);
+                left: -10px;
+            }
+            63%{
+                color: rgba(155,0,0,0);
+            }
+            82%{
+                color: rgba(155,0,0,1);
+                left: -10px;
+            }
+            100%{
+                left: 0px;
             }
         }
+
+        @keyframes pos2 {
+            0%{
+                transform: rotate(-45deg);
+                left: 350px;
+                color: rgba(155,0,0,0);
+            }
+            40%{
+                transform: rotate(-45deg);
+                left: 350px;
+            }
+            60%{
+                transform: rotate(0deg);
+                left: 70px;
+            }
+            63%{
+                color: rgba(155,0,0,0);
+            }
+            100%{
+                color: rgba(155,0,0,1);
+            }
+        }
+
+        @keyframes pos3 {
+            0%{
+                transform: rotate(-135deg);
+                left: 400px;
+                color: rgba(155,0,0,0);
+            }
+            30%{
+                transform: rotate(-135deg);
+                left: 400px;
+            }
+            60%{
+                transform: rotate(-90deg);
+                left: 160px;
+            }
+            63%{
+                color: rgba(155,0,0,0);
+                transform: rotate(-90deg);
+            }
+            90%{
+                transform: rotate(0deg);
+                color: rgba(155,0,0,1);
+                left: 160px;
+            }
+            100%{
+                left: 140px;
+            }
+        }
+
+        #canopus{
+            position: absolute;
+            top: 400px;
+            color: white;
+            left: 30px;
+            letter-spacing: 18px;
+            font-family: Calibri;
+            overflow: hidden;
+            animation: 2.5s enlen cubic-bezier(.89,.24,.38,1);
+            /*animation-delay: 2s;*/
+        }
+
+        @keyframes enlen {
+            0%{
+                opacity: 0;
+
+                letter-spacing: 80px;
+            }
+            80%{
+                opacity: 0;
+
+                letter-spacing: 80px;
+            }
+            100%{
+                opacity: 1;
+                letter-spacing: 18px;
+            }
+        }
+
+
     </style>
 </head>
 <body>
-<h2 id="poffset">offset: 0</h2>
-<input type="range" id="offset" min="0" max="1000" step="1" value="0" style="width: 400px">
-<h2 id="parray">array: 0</h2>
-<input type="range" id="array" min="0" max="1000" step="1" value="0" style="width: 400px">
+<h2 id="poffset" hidden>offset: 0</h2>
+<input type="range" id="offset" min="0" max="1000" step="1" value="0" style="width: 400px" hidden>
+<h2 id="parray" hidden>array: 0</h2>
+<input type="range" id="array" min="0" max="1000" step="1" value="0" style="width: 400px" hidden>
 
 <div id="board">
-    <svg id="cir">
+    <div id="cuber1">
+        <div style="opacity:1;position: absolute;font-size: 60px;color: inherit;left: 20px;top: 8px;font-weight: lighter">老</div>
+    <svg>
         <g fill="none" stroke="white">
-            <path class="fill1" stroke-width="2" d="M100 190a90 90 0 1 1 0.1 0"></path>
+            <path class="fill1" stroke-width="2" d="M10 10h80 0l0 80h-80 0 l0 -80"></path>
         </g>
     </svg>
+    </div>
+    <div id="cuber2">
+        <div style="opacity:1;position: absolute;font-size: 60px;color: inherit;left: 20px;top: 8px;font-weight: lighter">人</div>
+
+        <svg>
+        <g fill="none" stroke="white">
+            <path class="fill2" stroke-width="2" d="M10 10h80 0l0 80h-80 0 l0 -80"></path>
+        </g>
+    </svg>
+    </div>
+
+    <div id="cuber3">
+        <div style="opacity:1;position: absolute;font-size: 60px;color: inherit;left: 20px;top: 8px;font-weight: lighter">星</div>
+
+        <svg>
+        <g fill="none" stroke="white">
+            <path class="fill3" stroke-width="2" d="M10 10h80 0l0 80h-80 0 l0 -80"></path>
+        </g>
+    </svg>
+    </div>
+
+    <div id="canopus">CANOPUS</div>
 </div>
 </body>
 <script>
@@ -75,7 +263,11 @@
             $('#parray').html('array: '+this.value);
             // console.log(this.value);
             $('.fill1').css('stroke-dasharray',this.value);
-        })
+        });
+
+        setTimeout(function () {
+            window.location.reload();
+        },3000);
     };
 
 </script>
