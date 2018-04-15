@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--    <script src="js/Rcanvas/Rcanvas.js"></script>-->
+    <title>Document</title>
+    <style>
+        #main {
+            border: 1px solid black;
+        }
+
+        .dir {
+            height: 50px;
+            width: 50px;
+            font-size: 50px;
+            /*background-color: aqua;*/
+
+        }
+    </style>
+    <!--<script src="js/Rcanvas.js"></script>-->
+</head>
+<body>
+<input id="nums" type="number"><button onclick="pr()">生成</button>
+
+<canvas id="main" width="150" height="60"></canvas>
+<div id="ki">
+
+</div>
+</body>
+<script>
+    var test = document.getElementById('test');
+    var c = document.getElementById('main');
+    var ctx = c.getContext('2d');
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, 150, 60);
+    var timeline = 0;
+    var nam =document.getElementById('ki');
+
+    var time_flash = function () {
+        timeline++;
+        if (timeline > 0) {
+        }
+        if (timeline > 10000)
+            timeline = 0;
+    };
+
+    var quan='';
+
+    var tx=0;
+
+    var saveFile = function(data, filename){
+        var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+        save_link.href = data;
+        save_link.download = filename;
+
+        var event = document.createEvent('MouseEvents');
+        event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        save_link.dispatchEvent(event);
+    };
+
+    var draw = function () {
+        tx=0;
+        var a=new Array();
+        var text = timeline + '.jpg ';
+        for(var i=0;i<4;i++){
+            var tr=Math.PI/180*(Math.random()*6-3);
+            tx+=tr;
+            ctx.rotate(tr);
+            var t=Math.round(Math.random()*35);
+            if(t<26){
+                ctx.fillStyle='white';
+                ctx.font="40px Arial";
+                ctx.fontWeight = 900;
+                var tran=Math.random();
+                ctx.strokeStyle ='white';
+                ctx.fillText(String.fromCharCode(64 + parseInt(t+1)),30*i+10+10*(tran-0.5),40);
+                ctx.strokeText(String.fromCharCode(64 + parseInt(t+1)),30*i+10+10*(tran-0.5)-3,40);
+
+                text=text+String.fromCharCode(64 + parseInt(t+1));
+            }
+            else{
+                ctx.fillStyle='white';
+                ctx.font="40px Arial";
+                ctx.strokeStyle ='white';
+                ctx.fillText(t-26,30*i+10,40);
+                ctx.strokeText(t-26,30*i+10-3,40);
+                text=text+(t-26).toString();
+            }
+        }
+        for(var i=0;i<50;i++){
+            ctx.fillStyle='white';
+            ctx.fillRect(Math.random()*200-50,Math.random()*100-40,3,3);
+        }
+        for(var i=0;i<3;i++) {
+            ctx.beginPath();
+            ctx.moveTo(-50, Math.random() * 200 - 100);
+            ctx.lineTo(200, Math.random() * 200 - 100);
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.closePath();
+        }
+
+
+        var type = 'jpg';
+        var imgData = c.toDataURL(type);
+        var _fixType = function(type) {
+            type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+            var r = type.match(/png|jpeg|bmp|gif/)[0];
+            return 'image/' + r;
+        };
+
+        imgData = imgData.replace(_fixType(type),'image/octet-stream');
+
+        var filename =timeline+ '.' + type;
+        quan+=text+"\n";
+        saveFile(imgData,filename);
+        // nam.innerText=nam.innerText+text+"\n";
+    };
+
+    var num = document.getElementById('nums').value;
+
+    // console.log(num);
+    var pr = function () {
+        ctx.rotate(tx * -1);
+        time_flash();
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 0, 150, 60);
+        draw();
+        if(timeline%100===0) console.log(timeline);
+        if (timeline < num)
+            setTimeout(function (){pr()},0.1);
+        else{
+            nam.innerText=quan;
+        }
+    };
+
+</script>
+</html>
