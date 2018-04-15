@@ -23,7 +23,7 @@
     <!--<script src="js/Rcanvas.js"></script>-->
 </head>
 <body>
-<input id="nums" type="number"><button onclick="pr()">生成</button>
+<input id="nums" type="number" value="0"><button onclick="pr()">生成</button>
 
 <canvas id="main" width="150" height="60"></canvas>
 <div id="ki">
@@ -120,10 +120,10 @@
         // nam.innerText=nam.innerText+text+"\n";
     };
 
-    var num = document.getElementById('nums').value;
-
+    var num;
     // console.log(num);
     var pr = function () {
+        num = document.getElementById('nums').value;
         ctx.rotate(tx * -1);
         time_flash();
         ctx.fillStyle = 'black';
