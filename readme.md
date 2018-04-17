@@ -23,11 +23,15 @@
 插一个很好用的贝塞尔曲线的网站 http://cubic-bezier.com
 * [一些文字插入动画](https://r1ader.github.io/demo/bezier.html)
 
-<a href="https://r1ader.github.io/demo/bezier.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/bezier.gif" width = "300" height = "250" alt="热点词滚动" align=center /></a>
+<a href="https://r1ader.github.io/demo/bezier.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/bezier.gif" width = "300" height = "250" alt="一些文字插入动画之" align=center /></a>
 
 * [一些文字插入动画之2](https://r1ader.github.io/demo/bezier2.html)
 
-<a href="https://r1ader.github.io/demo/bezier2.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/bezier2.gif" width = "300" height = "250" alt="热点词滚动" align=center /></a>
+<a href="https://r1ader.github.io/demo/bezier2.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/bezier2.gif" width = "300" height = "220" alt="一些文字插入动画之2" align=center /></a>
+
+* [贝塞尔曲线生成](https://r1ader.github.io/demo/ppt.html)
+
+<a href="https://r1ader.github.io/demo/ppt.html"><img src="https://github.com/r1ader/demo/raw/gh-pages/img/ppt.gif" width = "300" height = "300" alt="贝塞尔曲线生成" align=center /></a>
 
 * [三维矩阵求逆](https://r1ader.github.io/demo/Matrix.html)
 
