@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/Rcanvas.js"></script>
+    <style>
+        #main {
+            border: 1px gray solid;
+        }
+        #bezier{
+            font-family: Calibri;
+            font-size: 30px;
+            font-weight: bold;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="bezier"></div>
+<canvas id="main" width="800" height="600">
+</canvas>
+</body>
+<script>
+    // setInterval(function () {
+    //     location.reload();
+    // },5000);
+    var c = document.getElementById('main');
+    var ctx = c.getContext('2d');
+    var text = document.getElementById('bezier');
+    focus_On(c);
+    var p1 = new Point(90, 20);
+    var p2 = new Point(38, 99);
+    var ac = [p1, p2];
+    var num = 100;
+    var out = new Array(100);
+    var temp = new Array(100);
+    var pots = new Array(100);
+    ComputeBezier(ac, num, out, temp);
+    // ctx.translate(0, 600);
+    // ctx.scale(1, -1);
+    for (var i = 0; i < 100; i++) {
+        pots[i] = add_Point(i * 5, out[i] * 5);
+        // add_Point(temp[i].x*5,temp[i].y*5+50);
+    }
+
+    add_Line(new Point(500, 501), new Point(500, 0));
+    add_Line(new Point(800, 501), new Point(0, 501));
+    add_Line(new Point(500, 250), new Point(800, 250));
+
+    var mytr = add_Triangle(new Point(0, 550), 50, 0);
+    var mysq = add_Square(new Point(650, 125), 100, 0);
+    var myci = add_Circle(new Point(650, 380), 0, 0);
+
+    var lin1 = add_Line(new Point(0, 0), p1);
+    var lin2 = add_Line(p2, new Point(500, 501));
+    var cir1 = add_Circle(new Point(450, 100), 10);
+    var cir2 = add_Circle(new Point(190, 495), 10);
+    cir1.if_solid = true;
+    cir2.if_solid = true;
+    // mytr.if_solid = true;
+    var deal = function () {
+        if (mouse_left) {
+            if (mousex <= 500 && mousex >= 0 && mousey <= 500 && mousey >= 0)
+                if ((mousex - p1.x * 5) * (mousex - p1.x * 5) + (mousey - p1.y * 5) * (mousey - p1.y * 5) < (mousex - p2.x * 5) * (mousex - p2.x * 5) + (mousey - p2.y * 5) * (mousey - p2.y * 5)) {
+                    p1.relocation(mousex / 5, mousey / 5);
+                    cir1.core_pot.relocation(mousex, mousey);
+                }
+                else {
+                    p2.relocation(mousex / 5, mousey / 5);
+                    cir2.core_pot.relocation(mousex, mousey);
+                }
+            ComputeBezier(ac, num, out, temp);
+            for (var i = 0; i < 100; i++) {
+                pots[i].relocation(i * 5, out[i] * 5);
+            }
+
+        }
+        text.innerText = "cubic-bezier(."+Math.floor(p1.x)+",."+Math.floor(p1.y)+",."+Math.floor(p2.x)+",."+Math.floor(p2.y)+")";
+        lin1.end_pot.x = p1.x * 5;
+        lin1.end_pot.y = p1.y * 5;
+        lin2.start_pot.x = p2.x * 5;
+        lin2.start_pot.y = p2.y * 5;
+        if (timeline % 200 < 100) {
+            mytr.core_pot.x = out[timeline % 100] * 5 + 100;
+            myci.radius = out[timeline%100]/1.5;
+            mysq.dir =out[timeline%100]/100*Pi;
+        }
+        else{
+            mytr.core_pot.x = out[100-timeline % 100] * 5 + 100;
+            myci.radius = out[100-timeline%100]/1.5;
+            mysq.dir =out[100-timeline%100]/100*Pi;
+        }
+        // if(timeline>=100) location.reload();
+    };
+
+    function pr() {
+        requestAnimationFrame(pr);
+        time_flash();
+        deal();
+        draw_Background('gray');
+        draw_Objects();
+    }
+
+    pr();
+</script>
+</html>
