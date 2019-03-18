@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        h1{
+        h1 {
             font-size: 100px
         }
     </style>
@@ -19,8 +19,16 @@
     main = document.getElementById('main')
     rd = Math.floor(Math.random() * ls.length)
     console.log(ls[rd])
-    main.innerText = ls[rd]
-
+    main.innerText = ls[rd]+'\n'+'澳门首家线上赌场上线啦'
+    let a = 1
+    setInterval(() => {
+        a++
+        if (a % 2 === 1) {
+            main.setAttribute('style', 'color:red')
+        } else {
+            main.setAttribute('style', 'color:blue')
+        }
+    }, 500)
 
 </script>
 
